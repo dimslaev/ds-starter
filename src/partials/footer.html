@@ -1,0 +1,10 @@
+<!-- build:js -->
+<script src="assets/js/bundle.js"></script>
+<!-- endbuild -->
+@@if (context.scripts.length > 0) {
+    @@for (var i = 0; i < scripts.length; i++) {
+        <script src="`+scripts[i]+`"></script>
+    }
+}
+</body>
+</html>
