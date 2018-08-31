@@ -43,6 +43,8 @@ function clean() {
     return del('dist/')
 }
 
+gulp.task('clean', clean)
+
 function styles() {
     return gulp.src(sassets + '/scss/main.scss')
         .pipe(sass())
@@ -56,6 +58,8 @@ function styles() {
         .pipe(gulp.dest(dassets + '/css'))
 }
 
+gulp.task('styles', styles)
+
 function scripts() {
     return gulp.src(sassets + '/js/main.js')
         .pipe(webpack(webpackConfig[env]))
@@ -65,6 +69,9 @@ function scripts() {
         .pipe(gulp.dest(dassets + '/js'))
 }
 
+gulp.task('scripts', scripts)
+
+
 function images() {
     return gulp.src(sassets + '/img/**/*')
         .pipe(gulpif(!dev, imagemin({
@@ -73,6 +80,8 @@ function images() {
         })))
         .pipe(gulp.dest('./dist/assets/img'))
 }
+
+gulp.task('images', images)
 
 function html() {
     return gulp.src('./src/**/*.html')
@@ -91,6 +100,8 @@ function html() {
         .pipe(gulp.dest('./dist'))
 }
 
+gulp.task('html', html)
+
 function copy() {
     return gulp.src([
         './src/**',
@@ -101,6 +112,8 @@ function copy() {
         '!./src/**/*.html'
     ]).pipe(gulp.dest('./dist'))
 }
+
+gulp.task('copy', copy)
 
 function watch() {
     gulp.watch(sassets + '/js/**/*.js', scripts),
