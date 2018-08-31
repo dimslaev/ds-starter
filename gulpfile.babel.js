@@ -8,7 +8,7 @@ import bs from 'browser-sync'
 import gulpif from 'gulp-if'
 import rename from 'gulp-rename'
 import del from 'del'
-import less from 'gulp-less'
+import sass from 'gulp-sass'
 import cleanCss from 'gulp-clean-css'
 import autoprefixer from 'gulp-autoprefixer'
 import fileinclude from 'gulp-file-include'
@@ -44,8 +44,8 @@ function clean() {
 }
 
 function styles() {
-    return gulp.src(sassets + '/less/main.less')
-        .pipe(less())
+    return gulp.src(sassets + '/scss/main.scss')
+        .pipe(sass())
         .on('error', function(err){
             console.log(err.message.toString())
             this.emit('end')
@@ -104,7 +104,7 @@ function copy() {
 
 function watch() {
     gulp.watch(sassets + '/js/**/*.js', scripts),
-    gulp.watch(sassets + '/less/**/*.less', styles),
+    gulp.watch(sassets + '/scss/**/*.scss', styles),
     gulp.watch(sassets + '/img/**/*', images),
     gulp.watch('src/**/*.html', html),
     gulp.watch(['dist/**/*.html', dassets + '/css/**/*.css', dassets + '/js/**/*.js', dassets + '/img/**/*'], reload)
