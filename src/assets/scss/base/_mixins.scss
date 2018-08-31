@@ -1,0 +1,7 @@
+@mixin make-color-classes($prefix, $list) {
+  @each $name, $value in $list {
+    .#{$prefix}-#{$name} {
+      color: $value;
+    }
+  }
+}
