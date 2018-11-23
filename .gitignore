@@ -1,7 +1,8 @@
-/node_modules
+assets/js/app.js
+assets/css/main.css
+node_modules/
 package-lock.json
-/dist
-/.idea
+.idea/
 .DS_Store
 .DS_Store?
 ._*

@@ -1,35 +1,25 @@
 {
-  "name": "DS starter",
+  "name": "DS",
   "version": "1.0.0",
-  "description": "Gulp 4, Webpack, Babel and some other tools.",
-  "main": "gulpfile.js",
+  "description": "Starter slim version.",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "js:build": "babel assets/js/main.js --out-file assets/js/app.js",
+    "js:watch": "babel assets/js/main.js --watch --out-file assets/js/app.js",
+    "css:build": "node-sass --include-path scss assets/scss/main.scss assets/css/main.css",
+    "css:watch": "nodemon -e scss -x \"npm run css:build\"",
+    "watch": "concurrently \"npm:js:watch\" \"npm:css:watch\"",
+    "lint": "eslint ."
   },
   "author": "Dimslaev",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "browser-sync": "^2.24.7",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-file-include": "^2.0.1",
-    "gulp-html-replace": "^1.6.2",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-size": "^3.0.0",
-    "node-sass": "^4.9.3",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack-stream": "^5.1.1"
-  },
-  "dependencies": {
-    "bootstrap": "^4.1.3"
+    "babel-watch": "^2.0.7",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.9.0",
+    "node-sass": "^4.10.0",
+    "nodemon": "^1.18.6"
   }
 }
