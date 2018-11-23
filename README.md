@@ -1,6 +1,6 @@
 # DS Starter - SLIM 
 
-Slim version compiles scripts and styles and watches for changes via NPM scripts. 
+Slim version compiles js (ECMA 6) and styles (SCSS) and watches for changes using NPM scripts. 
 
 ### Commands: 
 - npm run build / npm run build:js / npm run build:css
