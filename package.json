@@ -4,12 +4,12 @@
   "description": "Starter slim version.",
   "main": "index.js",
   "scripts": {
-    "js:build": "babel assets/js/main.js --out-file assets/js/app.js",
-    "js:watch": "babel assets/js/main.js --watch --out-file assets/js/app.js",
-    "css:build": "node-sass --include-path scss assets/scss/main.scss assets/css/main.css",
-    "css:watch": "nodemon -e scss -x \"npm run css:build\"",
-    "watch": "concurrently \"npm:js:watch\" \"npm:css:watch\"",
-    "lint": "eslint ."
+    "build:js": "babel src/js/main.js --out-file assets/js/app.js",
+    "watch:js": "babel src/js/main.js --watch --out-file assets/js/app.js",
+    "build:css": "node-sass --include-path scss src/scss/main.scss assets/css/main.css",
+    "watch:css": "nodemon -e scss -x \"npm run build:css\"",
+    "build": "concurrently \"npm:build:js\" \"npm:build:css\"",
+    "watch": "concurrently \"npm:watch:js\" \"npm:watch:css\""
   },
   "author": "Dimslaev",
   "license": "ISC",
